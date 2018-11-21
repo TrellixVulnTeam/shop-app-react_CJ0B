@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddItemForm from './AddItemForm';
 
+import $ from 'jquery';
+
+
 class Inventory extends React.Component {
 
     constructor() {
@@ -15,7 +18,11 @@ class Inventory extends React.Component {
       }
     }
 
-
+    componentDidMount() {
+      $('.item-edit-collapse').on('click', function(){
+        $('.item-edit-container').toggleClass('item-edit-open');
+      })
+    }
 
     handleChange(e, key) {
       const item = this.props.items[key];
@@ -30,7 +37,7 @@ class Inventory extends React.Component {
       const item = this.props.items[key];
 
       return(
-        <div className="fish-edit" key={key}>
+        <div className="item-edit" key={key}>
           <input value={item.name} type="text" name="name" placeholder="Kicks Name" onChange={(e) => this.handleChange(e, key)}/>
           <input value={item.price} type="text" name="price" placeholder="Kicks Price" onChange={(e) => this.handleChange(e, key)} />
           <select value={item.status}name="status" onChange={(e) => this.handleChange(e, key)} >
@@ -48,12 +55,17 @@ class Inventory extends React.Component {
     render() {
         return (
           <div>
-            <h2>Inventory</h2>
+            
+            <button class="item-edit-collapse"><h2>Show/Hide Inventory</h2></button>
             <div>
-            <button className="inventoryBtn" type="submit" onClick={this.props.loadSample}>Load sample Shoes</button>
+            
             </div>
-            {Object.keys(this.props.items).map(this.renderInventory)}
+            <div className="item-edit-container">
+              {Object.keys(this.props.items).map(this.renderInventory)}
+            
             <AddItemForm addItem={this.props.addItem} />
+            </div>
+            <button className="inventoryBtn" type="submit" onClick={this.props.loadSample}><h2>Load sample Shoes</h2></button>
             
           </div>
 

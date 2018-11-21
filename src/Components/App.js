@@ -99,18 +99,9 @@ class App extends React.Component{
      render() {
          return (
            <Fragment>
-            <div className="catch-of-the-day">
-                <div className="menu">
-                    <Header tagline={JSON.stringify(this.props.match.params.storeId) + ' - ONLINE SHOP'}/>   
-                    <ul className="list-of-fishes">
-                      {
-                        Object
-                          .keys(this.state.items)
-                          .map(key => <Item key={key} index={key} details={this.state.items[key]} addToOrder={this.addToOrder}/>)
-                      }
-                    </ul>
-                </div>
+            <div className="shop-app">
                 <div>
+                  <Header tagline={JSON.stringify(this.props.match.params.storeId) + ' - ONLINE SHOP'}/>   
                   <Order
                   items={this.state.items}
                   order={this.state.order}
@@ -118,7 +109,8 @@ class App extends React.Component{
                   removeFromOrder={this.removeFromOrder}
                   />
                 </div>
-                <div><Inventory
+                <div>
+                  <Inventory
                   addItem={this.addItem}
                   loadSample={this.loadSample}
                   items={this.state.items}
@@ -126,8 +118,17 @@ class App extends React.Component{
                   removeItem={this.removeItem}
                   storeId={this.props.match.params.storeId}
                     />
-
                 </div>  
+                <div className="menu">
+                    <ul className="list-of-items">
+                      {
+                        Object
+                          .keys(this.state.items)
+                          .map(key => <Item key={key} index={key} details={this.state.items[key]} addToOrder={this.addToOrder}/>)
+                      }
+                    </ul>
+                </div>
+                
 
 
             </div>

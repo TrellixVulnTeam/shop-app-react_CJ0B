@@ -11,15 +11,16 @@ class Item extends React.Component {
     const buttonText = isAvailable ? 'Add to order' : 'Sold out!';
 
     return (
-      <li className="menu-fish">
+      <li className="menu-item">
         <div>
-          <img src={details.image} alt={details.name} />
-          <h3 className="fish-name">
+          
+          <h3 className="item-name">
             {details.name}
-            <span className="price">{formatPrice(details.price)}</span>
           </h3>
+          <img src={details.image} alt={details.name} />
           <p>{details.desc}</p>
         </div>
+        <span className="price">{formatPrice(details.price)}</span>
         <button className="menuBtn" disabled={!isAvailable} onClick={() => this.props.addToOrder(index)}>{buttonText}</button>
         
         

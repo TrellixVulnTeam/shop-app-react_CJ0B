@@ -62,7 +62,7 @@ class Order extends React.Component {
                 >
                   {orderIds.map(this.renderOrder)}
                   <li className="total">
-                    <strong>Total: </strong>
+                    <p>Total: </p>
                     {formatPrice(total)}
                   </li>
               </CSSTransitionGroup>

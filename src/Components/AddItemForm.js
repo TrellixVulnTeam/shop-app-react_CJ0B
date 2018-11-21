@@ -20,7 +20,7 @@ class AddItemForm extends React.Component {
 
     render() {
         return (
-            <form ref={(input) => this.itemForm = input} className="fish-edit" onSubmit={(e) => this.createItem(e)}>
+            <form ref={(input) => this.itemForm = input} className="item-edit" onSubmit={(e) => this.createItem(e)}>
               <input ref={(input) => this.name = input} type="text" placeholder="Kicks Name"/>
               <input ref={(input) => this.price = input} type="text" placeholder="Kicks Price"/>
               <select ref={(input) => this.status = input}>
