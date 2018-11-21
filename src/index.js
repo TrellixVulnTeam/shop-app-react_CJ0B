@@ -16,7 +16,7 @@ import './css/style.css';
 const Routes = props => {
   return (
       
-    <HashRouter  basename="/portfolio-react-shop-ghpages/">
+    <HashRouter  basename="/shop-app-react/">
       <Switch>
         <Route exact path="/" component={StorePicker} />
         <Route path="/store/:storeId" component={App} />
