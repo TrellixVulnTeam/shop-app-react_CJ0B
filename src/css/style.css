@@ -367,7 +367,7 @@ header.top h3:after {
   position: relative;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  overflow: scroll;
+  overflow: hidden;
 }
  .shop-app > *:first-child {
   -ms-flex-negative: 1;
